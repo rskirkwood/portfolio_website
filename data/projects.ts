@@ -10,16 +10,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "college-football-analytics",
+    slug: "cfb-rankings",
     title: "College Football Analytics & Rankings",
     summary:
-      "Data pipeline + custom ranking metrics. Next step: weekly auto-refresh and publish to this site.",
+      "Unbiased FBS ranking system based purely on who you beat and who you lose to, using win/loss-based scoring and normalized strength of schedule.",
     tech: ["Python", "pandas", "NumPy", "Next.js", "TypeScript"],
     highlights: [
       "Pulled 3.6k+ game records and computed strength metrics",
       "Drafted ranking algorithm and experiment harness",
       "Planned automations for weekly data refresh",
     ],
-    repo: "https://github.com/yourhandle/your-cfb-repo",
+    repo: "https://github.com/rskirkwood/cfb_rankings",
   },
 ];
