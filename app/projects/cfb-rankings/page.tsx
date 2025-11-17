@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import type { CfbRankingsPayload } from "@/data/cfb_rankings";
 
 function loadRankings(): CfbRankingsPayload | null {
@@ -23,25 +24,34 @@ export default function CfbRankingsPage() {
       <Nav />
 
       <section className="page-section">
-        <h1 className="page-heading">College Football Rankings</h1>
+        <Link
+            href="/projects"
+            className="text-sm text-zinc-600 hover:text-zinc-800 underline underline-offset-4"
+        >
+            ← Back to Projects
+        </Link>
+
+        <h1 className="page-heading mt-4">College Football Rankings</h1>
+
         {data ? (
-          <>
+            <>
             <p className="page-subtitle">
-              {data.year} FBS-only rankings, generated from game results using a
-              win/loss-based scoring system that rewards beating teams with more wins
-              and penalizes losing to teams with more losses.
+                {data.year} FBS-only rankings, generated from game results using a
+                win/loss-based scoring system that rewards beating teams with more wins
+                and penalizes losing to teams with more losses.
             </p>
             <p className="mt-2 text-xs text-zinc-500">
-              Last updated: {data.lastUpdated}
+                Last updated: {data.lastUpdated}
             </p>
-          </>
+            </>
         ) : (
-          <p className="page-subtitle">
+            <p className="page-subtitle">
             Rankings data could not be loaded. This may be due to missing or
             out-of-date ranking files.
-          </p>
+            </p>
         )}
-      </section>
+        </section>
+
 
       {data && (
         <section className="page-section">
@@ -88,12 +98,12 @@ export default function CfbRankingsPage() {
                 <p className="mt-3 text-xs text-zinc-500">
                   Code:{" "}
                   <a
-                    href="https://github.com/rskirkwood/college-football-analytics"
+                    href="https://github.com/rskirkwood/cfb_rankings"
                     target="_blank"
                     rel="noreferrer"
                     className="link-accent"
                   >
-                    github.com/rskirkwood/college-football-analytics
+                    github.com/rskirkwood/cfb_rankings
                   </a>
                 </p>
               </div>
