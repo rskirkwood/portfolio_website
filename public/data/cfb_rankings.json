@@ -1,0 +1,257 @@
+{
+  "year": 2025,
+  "lastUpdated": "2025-11-17",
+  "methodSummary": "Teams earn points based on the total wins of the teams they have beaten, and lose points based on the total losses of the teams they\u2019ve lost to. Scores are normalized by games played and filtered to FBS teams only.",
+  "top25": [
+    {
+      "rank": 1,
+      "team": "Ohio State",
+      "conference": "Big Ten",
+      "score": 5.2,
+      "wins": 10,
+      "losses": 0,
+      "mascot": "Buckeyes",
+      "logo": "/logos/cfb/Ohio_State_Buckeyes_logo-300x300.png"
+    },
+    {
+      "rank": 2,
+      "team": "Georgia",
+      "conference": "SEC",
+      "score": 5.1,
+      "wins": 9,
+      "losses": 1,
+      "mascot": "Bulldogs",
+      "logo": "/logos/cfb/Georgia_Bulldogs_logo-300x300.png"
+    },
+    {
+      "rank": 3,
+      "team": "Indiana",
+      "conference": "Big Ten",
+      "score": 5.091,
+      "wins": 11,
+      "losses": 0,
+      "mascot": "Hoosiers",
+      "logo": "/logos/cfb/Indiana_Hoosiers_logo-300x300.png"
+    },
+    {
+      "rank": 4,
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "score": 4.8,
+      "wins": 10,
+      "losses": 0,
+      "mascot": "Aggies",
+      "logo": "/logos/cfb/Texas_AM_University_logo-300x300.png"
+    },
+    {
+      "rank": 5,
+      "team": "BYU",
+      "conference": "Big 12",
+      "score": 4.4,
+      "wins": 9,
+      "losses": 1,
+      "mascot": "Cougars",
+      "logo": "/logos/cfb/BYU_Cougars_logo-300x300.png"
+    },
+    {
+      "rank": 6,
+      "team": "Oklahoma",
+      "conference": "SEC",
+      "score": 4.3,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Sooners",
+      "logo": "/logos/cfb/Oklahoma_Sooners_logo-300x300.png"
+    },
+    {
+      "rank": 7,
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "score": 4.182,
+      "wins": 10,
+      "losses": 1,
+      "mascot": "Red Raiders",
+      "logo": "/logos/cfb/Texas_Tech_Red_Raiders_logo-300x300.png"
+    },
+    {
+      "rank": 8,
+      "team": "Oregon",
+      "conference": "Big Ten",
+      "score": 4.1,
+      "wins": 9,
+      "losses": 1,
+      "mascot": "Ducks",
+      "logo": "/logos/cfb/Oregon_Ducks_logo-300x300.png"
+    },
+    {
+      "rank": 9,
+      "team": "North Texas",
+      "conference": "AAC",
+      "score": 4.1,
+      "wins": 9,
+      "losses": 1,
+      "mascot": "Mean Green",
+      "logo": "/logos/cfb/North_Texas_Mean_Green_logo-300x300.png"
+    },
+    {
+      "rank": 10,
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "score": 4.0,
+      "wins": 10,
+      "losses": 1,
+      "mascot": "Rebels",
+      "logo": "/logos/cfb/Ole_Miss_Rebels_logo-300x300.png"
+    },
+    {
+      "rank": 11,
+      "team": "Alabama",
+      "conference": "SEC",
+      "score": 3.9,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Crimson Tide",
+      "logo": "/logos/cfb/Alabama_Crimson_Tide_logo-300x300.png"
+    },
+    {
+      "rank": 12,
+      "team": "USC",
+      "conference": "Big Ten",
+      "score": 3.8,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Trojans",
+      "logo": "/logos/cfb/USC_Trojans_logo-300x300.png"
+    },
+    {
+      "rank": 13,
+      "team": "Notre Dame",
+      "conference": "Independent",
+      "score": 3.7,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Fighting Irish",
+      "logo": "/logos/cfb/Notre_Dame_Fighting_Irish_logo-300x300.png"
+    },
+    {
+      "rank": 14,
+      "team": "Virginia",
+      "conference": "ACC",
+      "score": 3.636,
+      "wins": 9,
+      "losses": 2,
+      "mascot": "Cavaliers",
+      "logo": "/logos/cfb/Virginia_Cavaliers_logo-300x300.png"
+    },
+    {
+      "rank": 15,
+      "team": "Michigan",
+      "conference": "Big Ten",
+      "score": 3.6,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Wolverines",
+      "logo": "/logos/cfb/Michigan_Wolverines_logo-300x300.png"
+    },
+    {
+      "rank": 16,
+      "team": "Tulane",
+      "conference": "AAC",
+      "score": 3.4,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Green Wave",
+      "logo": "/logos/cfb/Tulane_Green_Wave_logo-300x300.png"
+    },
+    {
+      "rank": 17,
+      "team": "James Madison",
+      "conference": "Sun Belt",
+      "score": 3.4,
+      "wins": 9,
+      "losses": 1,
+      "mascot": "Dukes",
+      "logo": "/logos/cfb/James_Madison_Dukes_logo-300x300.png"
+    },
+    {
+      "rank": 18,
+      "team": "Utah",
+      "conference": "Big 12",
+      "score": 3.4,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Utes",
+      "logo": "/logos/cfb/Utah_Utes_logo-300x300.png"
+    },
+    {
+      "rank": 19,
+      "team": "Georgia Tech",
+      "conference": "ACC",
+      "score": 3.4,
+      "wins": 9,
+      "losses": 1,
+      "mascot": "Yellow Jackets",
+      "logo": "/logos/cfb/Georgia_Tech_Yellow_Jackets_logo-300x300.png"
+    },
+    {
+      "rank": 20,
+      "team": "Miami",
+      "conference": "ACC",
+      "score": 3.3,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Hurricanes",
+      "logo": "/logos/cfb/Miami_OH_Redhawks_logo-300x300.png"
+    },
+    {
+      "rank": 21,
+      "team": "Arizona State",
+      "conference": "Big 12",
+      "score": 3.2,
+      "wins": 7,
+      "losses": 3,
+      "mascot": "Sun Devils",
+      "logo": "/logos/cfb/Arizona_State_Sun_Devils_logo-300x300.png"
+    },
+    {
+      "rank": 22,
+      "team": "Houston",
+      "conference": "Big 12",
+      "score": 3.0,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Cougars",
+      "logo": "/logos/cfb/Houston_Cougars_logo-300x300.png"
+    },
+    {
+      "rank": 23,
+      "team": "Illinois",
+      "conference": "Big Ten",
+      "score": 3.0,
+      "wins": 7,
+      "losses": 3,
+      "mascot": "Fighting Illini",
+      "logo": "/logos/cfb/Illinois_Fighting_Illini_logo-300x300.png"
+    },
+    {
+      "rank": 24,
+      "team": "South Florida",
+      "conference": "AAC",
+      "score": 2.9,
+      "wins": 7,
+      "losses": 3,
+      "mascot": "Bulls",
+      "logo": "/logos/cfb/South_Florida_Bulls_logo-300x300.png"
+    },
+    {
+      "rank": 25,
+      "team": "Vanderbilt",
+      "conference": "SEC",
+      "score": 2.8,
+      "wins": 8,
+      "losses": 2,
+      "mascot": "Commodores",
+      "logo": "/logos/cfb/Vanderbilt_Commodores_logo-300x300.png"
+    }
+  ]
+}
