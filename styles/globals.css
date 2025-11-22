@@ -57,7 +57,21 @@
   @apply rounded-2xl border bg-white/80 p-4 shadow-[0_1px_3px_rgba(15,23,42,0.08)] transition hover:shadow-md;
 }
 
-/* Simple pill tags (if you want later) */
+
 .tag-pill {
-  @apply inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs text-zinc-600;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.55rem;
+  border-radius: 9999px;
+  background-color: #f4f4f5; /* light gray */
+  color: #4b5563;           /* gray text */
+  font-size: 0.75rem;       /* text-xs */
+  line-height: 1rem;
+  white-space: nowrap;
+}
+
+.tag-pill--active {
+  background-color: #e0f2fe; /* sky-100 */
+  color: #0369a1;            /* sky-700 */
+  border: 1px solid #7dd3fc;
 }

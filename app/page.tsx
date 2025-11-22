@@ -8,6 +8,7 @@ import { projects } from "@/data/projects";
 
 export default function HomePage() {
   const featured = projects.slice(0, 3);
+
   return (
     <main>
       <Nav />
@@ -29,7 +30,9 @@ export default function HomePage() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest text-zinc-500">Hello, I’m</p>
+            <p className="text-xs uppercase tracking-widest text-zinc-500">
+              Hello, I’m
+            </p>
             <h1 className="mt-1 text-4xl font-bold tracking-tight sm:text-5xl">
               Riley Kirkwood
             </h1>
@@ -41,9 +44,15 @@ export default function HomePage() {
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link href="/projects" className="btn-primary">View Projects</Link>
-              <Link href="/about" className="btn-ghost">About & Resume</Link>
-              <Link href="/contact" className="btn-ghost">Contact</Link>
+              <Link href="/projects" className="btn-primary">
+                View Projects
+              </Link>
+              <Link href="/about" className="btn-ghost">
+                About &amp; Resume
+              </Link>
+              <Link href="/contact" className="btn-ghost">
+                Contact
+              </Link>
 
               <span className="ml-2 inline-flex items-center gap-2">
                 <SocialIcons
@@ -57,17 +66,50 @@ export default function HomePage() {
         </div>
       </section>
 
-
       {/* Featured projects */}
       <section className="py-10">
         <h2 className="text-2xl font-semibold">Featured Projects</h2>
+
+        {/* Dedicated drone card with small blurb */}
+        <div className="mt-4">
+          <article className="card">
+            <h3 className="text-lg font-semibold">
+              Drone Orientation Sensor Fusion (Capstone)
+            </h3>
+            <p className="mt-2 text-sm text-zinc-700">
+              Jetson Nano + ROS system that fuses IMU and camera data with an
+              Extended Kalman Filter to estimate roll, pitch, and yaw in real
+              time. Compared to IMU-only and vision-only baselines, the EKF
+              improves roll-angle accuracy by roughly 60% and 45% respectively,
+              and significantly cleans up angle-rate estimates.
+            </p>
+            <p className="mt-2 text-xs text-zinc-500">
+              Due to an NDA, the code isn&apos;t public, but the architecture
+              and results are documented on the project page.
+            </p>
+            <div className="mt-3">
+              <Link
+                href="/projects/drone-orientation"
+                className="text-sm text-sky-600 underline underline-offset-4"
+              >
+                View drone orientation project →
+              </Link>
+            </div>
+          </article>
+        </div>
+
+        {/* Existing featured grid (includes CFB rankings as one of the main projects) */}
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((p) => (
             <ProjectCard key={p.slug} project={p} />
           ))}
         </div>
+
         <div className="mt-6">
-          <Link href="/projects" className="text-sm text-zinc-700 underline underline-offset-4">
+          <Link
+            href="/projects"
+            className="text-sm text-zinc-700 underline underline-offset-4"
+          >
             See all projects →
           </Link>
         </div>
