@@ -1,3 +1,4 @@
+// app/page.tsx
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
@@ -7,7 +8,10 @@ import SocialIcons from "@/components/SocialIcons";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
-  const featured = projects.slice(0, 3);
+  // Small cards: everything except the big featured drone project
+  const featured = projects
+    .filter((p) => p.slug !== "drone-orientation")
+    .slice(0, 3);
 
   return (
     <main>
@@ -70,12 +74,17 @@ export default function HomePage() {
       <section className="py-10">
         <h2 className="text-2xl font-semibold">Featured Projects</h2>
 
-        {/* Dedicated drone card with small blurb */}
+        {/* Large featured drone project */}
         <div className="mt-4">
           <article className="card">
-            <h3 className="text-lg font-semibold">
-              Drone Orientation Sensor Fusion (Capstone)
-            </h3>
+            <Link
+              href="/projects/drone-orientation"
+              className="hover:underline"
+            >
+              <h3 className="text-lg font-semibold">
+                Drone Orientation Sensor Fusion (Capstone)
+              </h3>
+            </Link>
             <p className="mt-2 text-sm text-zinc-700">
               Jetson Nano + ROS system that fuses IMU and camera data with an
               Extended Kalman Filter to estimate roll, pitch, and yaw in real
@@ -88,17 +97,19 @@ export default function HomePage() {
               and results are documented on the project page.
             </p>
             <div className="mt-3">
-              <Link
-                href="/projects/drone-orientation"
-                className="text-sm text-sky-600 underline underline-offset-4"
-              >
-                View drone orientation project →
-              </Link>
+              <div className="mt-4 text-sm">
+                <Link
+                  href="/projects/drone-orientation"
+                  className="rounded-md border px-3 py-1 hover:bg-zinc-50"
+                >
+                  Details →
+                </Link>
+              </div>
             </div>
           </article>
         </div>
 
-        {/* Existing featured grid (includes CFB rankings as one of the main projects) */}
+        {/* Small cards (no drone duplicate) */}
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((p) => (
             <ProjectCard key={p.slug} project={p} />

@@ -10,7 +10,11 @@ import ProjectsTable from "@/components/ProjectsTable";
 import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
-  const otherProjects = projects; // you can later filter if you want
+  // Don’t re-list the two big featured projects in the small grid
+  const otherProjects = projects.filter(
+    (p) =>
+      p.slug !== "cfb-rankings" && p.slug !== "drone-orientation"
+  );
 
   return (
     <main>
@@ -29,12 +33,8 @@ export default function ProjectsPage() {
         <h2 className="text-2xl font-semibold">Featured projects</h2>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          {/* CFB rankings card – entire card clickable */}
-          <Link href="/projects/cfb-rankings" className="block focus:outline-none">
-            <div className="card h-full">
-              <CfbTop25Card />
-            </div>
-          </Link>
+          {/* CFB rankings: whole card is clickable, no extra wrapper card */}
+          <CfbTop25Card asLink />
 
           {/* Drone orientation card – entire card clickable */}
           <Link
@@ -72,7 +72,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Other projects grid */}
+      {/* Other projects grid (no duplicates of the big featured ones) */}
       <section className="page-section">
         <h2 className="text-2xl font-semibold">More projects</h2>
         <p className="mt-2 max-w-2xl text-sm text-zinc-700">
@@ -92,7 +92,6 @@ export default function ProjectsPage() {
       <section className="page-section">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-xl font-semibold">All projects</h2>
-          {/* The actual filter UI lives inside ProjectsTable via its button */}
         </div>
         <p className="mt-2 max-w-2xl text-sm text-zinc-700">
           A quick index of everything on this site. Each project title links to

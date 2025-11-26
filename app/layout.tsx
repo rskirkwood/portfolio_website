@@ -4,6 +4,13 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
   title: "Riley Kirkwood – Portfolio",
   description: "Embedded & software projects, resume, and contact.",
+
+  icons: {
+    icon: "/icon.png",         // your new logo
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
   openGraph: {
     title: "Riley Kirkwood – Portfolio",
     description: "Embedded & software projects, resume, and contact.",
