@@ -55,4 +55,40 @@ export const projects: Project[] = [
     concepts: ["Embedded", "Sensor Fusion", "Control"],
     languages: ["C++", "Python", "MATLAB"],
   },
+  {
+    slug: "sdr-telemetry",
+    title: "SDR Telemetry Research & Signal Processing Implementation",
+    summary:
+      "Work on high-rate aeronautical telemetry receivers using COTS SDRs. I wrote the C host-side DSP and SDR interface code that enabled multi-Mbps SOQPSK-TG links and pushed an Ettus USRP X410 up to 8.192 Mb/s.",
+    tech: ["C", "Python", "MATLAB", "Ettus USRP X410", "Lumistar SMR-7522"],
+    highlights: [
+      "Implemented C-based SDR interface code to capture raw I/Q streams over UDP and parse them into usable sample buffers.",
+      "Wrote host-side DSP blocks including AGC, timing/resampling, and packet framing for real-time SOQPSK-TG demodulation.",
+      "Ran and automated BER experiments to compare SDRs and quantify maximum usable bit rates for aeronautical telemetry.",
+      "Co-authored multiple conference papers based on this work for the International Telemetering Conference.",
+    ],
+
+    type: "Work",
+    year: "2022–2024",
+    concepts: ["SDR", "Signal Processing", "Telemetry", "Embedded"],
+    languages: ["C", "Python", "MATLAB"],
+  },
+  {
+    slug: "5g-polarization",
+    title: "5G / IoT Polarization Diversity Measurement System",
+    summary:
+      "Measurement campaign using SDRs to characterize polarization diversity in the 3.7–3.98 GHz band for dense IoT and 5G-style indoor deployments.",
+    tech: ["MATLAB", "Python", "PlutoSDR", "Ettus USRP X410"],
+    highlights: [
+      "Helped build an SDR-based channel sounding system with a rotating transmit antenna and dual-polarized receive antennas.",
+      "Captured and processed channel responses for linear and circular polarizations in realistic indoor environments.",
+      "Analyzed cross-polarization discrimination and envelope correlation to quantify diversity benefits.",
+      "Co-authored a conference paper presented at IETC on polarization diversity for 5G-and-beyond IoT networks.",
+    ],
+
+    type: "Work",
+    year: "2023",
+    concepts: ["SDR", "5G", "RF Measurements", "Channel Modeling"],
+    languages: ["MATLAB", "Python"],
+  },
 ];

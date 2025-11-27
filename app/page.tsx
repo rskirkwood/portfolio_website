@@ -1,23 +1,41 @@
 // app/page.tsx
-import Link from "next/link";
-import Image from "next/image";
+
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import SocialIcons from "@/components/SocialIcons";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
-  // Small cards: everything except the big featured drone project
-  const featured = projects
-    .filter((p) => p.slug !== "drone-orientation")
-    .slice(0, 3);
+  // Large featured project is the drone orientation project.
+  const droneProject = projects.find((p) => p.slug === "drone-orientation");
+
+  // Ensure CFB + SDR are in the small featured row, exclude drone + IoT.
+  const desiredSmallSlugs = ["cfb-rankings", "sdr-telemetry"];
+  const smallFeatured: typeof projects = [];
+
+  desiredSmallSlugs.forEach((slug) => {
+    const p = projects.find((proj) => proj.slug === slug);
+    if (p) smallFeatured.push(p);
+  });
+
+  const excludedSlugs = new Set<string>([
+    "drone-orientation",
+    "5g-polarization",
+    ...desiredSmallSlugs,
+  ]);
+
+  const extra = projects.filter((p) => !excludedSlugs.has(p.slug)).slice(0, 3 - smallFeatured.length);
+
+  const smallCards = [...smallFeatured, ...extra];
 
   return (
     <main>
       <Nav />
 
-      {/* Hero */}
+      {/* Hero section */}
       <section className="relative overflow-hidden rounded-2xl border py-12 sm:py-16 section-accent">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(45rem_45rem_at_90%_-10%,var(--theme-blue)_12%,transparent_60%)]" />
 
@@ -35,16 +53,16 @@ export default function HomePage() {
 
           <div>
             <p className="text-xs uppercase tracking-widest text-zinc-500">
-              Hello, I’m
+              Hello, I&apos;m
             </p>
             <h1 className="mt-1 text-4xl font-bold tracking-tight sm:text-5xl">
               Riley Kirkwood
             </h1>
 
             <p className="mt-4 max-w-2xl text-lg text-zinc-700">
-              Computer Engineering grad focused on embedded systems with growing
-              interest in backend/full-stack and data analytics. I ship simple,
-              reliable things and iterate quickly.
+              Computer Engineering grad focused on embedded systems, signal
+              processing, and data-heavy tooling. I like building systems that
+              connect hardware, software, and real-world behavior.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -71,47 +89,45 @@ export default function HomePage() {
       </section>
 
       {/* Featured projects */}
-      <section className="py-10">
-        <h2 className="text-2xl font-semibold">Featured Projects</h2>
+      <section className="page-section">
+        <h2 className="text-2xl font-semibold">Featured projects</h2>
 
         {/* Large featured drone project */}
-        <div className="mt-4">
-          <article className="card">
+        {droneProject && (
+          <article className="card mt-4">
             <Link
-              href="/projects/drone-orientation"
+              href={`/projects/${droneProject.slug}`}
               className="hover:underline"
             >
               <h3 className="text-lg font-semibold">
-                Drone Orientation Sensor Fusion (Capstone)
+                {droneProject.title}
               </h3>
             </Link>
             <p className="mt-2 text-sm text-zinc-700">
               Jetson Nano + ROS system that fuses IMU and camera data with an
               Extended Kalman Filter to estimate roll, pitch, and yaw in real
               time. Compared to IMU-only and vision-only baselines, the EKF
-              improves roll-angle accuracy by roughly 60% and 45% respectively,
-              and significantly cleans up angle-rate estimates.
+              improves roll-angle accuracy and significantly cleans up angle-rate
+              estimates.
             </p>
             <p className="mt-2 text-xs text-zinc-500">
-              Due to an NDA, the code isn&apos;t public, but the architecture
-              and results are documented on the project page.
+              Due to an NDA, the code isn&apos;t public, but the architecture and
+              results are documented on the project page.
             </p>
-            <div className="mt-3">
-              <div className="mt-4 text-sm">
-                <Link
-                  href="/projects/drone-orientation"
-                  className="rounded-md border px-3 py-1 hover:bg-zinc-50"
-                >
-                  Details →
-                </Link>
-              </div>
+            <div className="mt-4 text-sm">
+              <Link
+                href={`/projects/${droneProject.slug}`}
+                className="rounded-md border px-3 py-1 hover:bg-zinc-50"
+              >
+                Details →
+              </Link>
             </div>
           </article>
-        </div>
+        )}
 
-        {/* Small cards (no drone duplicate) */}
+        {/* Small project cards */}
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p) => (
+          {smallCards.map((p) => (
             <ProjectCard key={p.slug} project={p} />
           ))}
         </div>

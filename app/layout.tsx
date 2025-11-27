@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Embedded & software projects, resume, and contact.",
 
   icons: {
-    icon: "/icon.png",         // your new logo
+    icon: "/icon.png",
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Riley Kirkwood – Portfolio",
     description: "Embedded & software projects, resume, and contact.",
-    url: "https://your-portfolio-url.vercel.app",
+    url: "https://riley-kirkwood.vercel.app",
     siteName: "Riley Kirkwood",
     type: "website",
   },
