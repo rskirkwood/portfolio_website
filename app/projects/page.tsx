@@ -1,20 +1,23 @@
 // app/projects/page.tsx
 
-import Link from "next/link";
-import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ProjectCard from "@/components/ProjectCard";
+import Link from "next/link";
+import Image from "next/image";
 import CfbTop25Card from "@/components/CfbTop25Card";
+import ProjectCard from "@/components/ProjectCard";
 import ProjectsTable from "@/components/ProjectsTable";
 import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
-  // Don’t re-list the two big featured projects in the small grid
   const otherProjects = projects.filter(
     (p) =>
-      p.slug !== "cfb-rankings" && p.slug !== "drone-orientation"
+      p.slug !== "cfb-rankings" &&
+      p.slug !== "drone-orientation" &&
+      p.slug !== "5g-polarization"
   );
+
+  const droneProject = projects.find((p) => p.slug === "drone-orientation");
 
   return (
     <main>
@@ -23,8 +26,9 @@ export default function ProjectsPage() {
       <section className="page-section">
         <h1 className="page-heading">Projects</h1>
         <p className="page-subtitle">
-          A few things I’ve been working on. I like connecting data, systems, and
-          real-world behavior, rather than just building toy examples.
+          A few things I&apos;ve been working on. I like connecting data,
+          systems, and real-world behavior, rather than just building toy
+          examples.
         </p>
       </section>
 
@@ -33,46 +37,47 @@ export default function ProjectsPage() {
         <h2 className="text-2xl font-semibold">Featured projects</h2>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          {/* CFB rankings: whole card is clickable, no extra wrapper card */}
+          {/* CFB rankings */}
           <CfbTop25Card asLink />
 
           {/* Drone orientation card – entire card clickable */}
-          <Link
-            href="/projects/drone-orientation"
-            className="block focus:outline-none"
-          >
-            <article className="card h-full">
-              <h3 className="text-xl font-semibold">
-                Drone Orientation Sensor Fusion (Capstone)
-              </h3>
-              <p className="mt-3 text-sm text-zinc-700">
-                Embedded Jetson Nano + ROS project where I fused IMU and camera
-                data with an Extended Kalman Filter to estimate roll, pitch, and
-                yaw in real time. Compared to IMU-only and vision-only baselines,
-                the EKF reduced roll-angle error to 3.01° RMSE (roughly 60%
-                improvement over IMU-only and 45% over vision-only) and produced
-                much smoother angle-rate estimates.
-              </p>
-              <div className="mt-4 overflow-hidden rounded-xl border bg-white">
-                <Image
-                  src="/drone/system-architecture.svg"
-                  alt="System architecture diagram for the drone orientation project"
-                  width={1400}
-                  height={800}
-                  className="h-auto w-full"
-                />
-              </div>
-              <p className="mt-3 text-xs text-zinc-500">
-                Due to an NDA, the firmware and full codebase can’t be shared on
-                GitHub, but the system design and performance are documented on
-                the project page.
-              </p>
-            </article>
-          </Link>
+          {droneProject && (
+            <Link
+              href={`/projects/${droneProject.slug}`}
+              className="block focus:outline-none"
+            >
+              <article className="card h-full">
+                <h3 className="text-xl font-semibold">
+                  {droneProject.title}
+                </h3>
+                <p className="mt-3 text-sm text-zinc-700">
+                  Embedded Jetson Nano + ROS project where I fused IMU and
+                  camera data with an Extended Kalman Filter to estimate roll,
+                  pitch, and yaw in real time. Compared to IMU-only and
+                  vision-only baselines, the EKF reduced roll-angle error and
+                  produced much smoother angle-rate estimates.
+                </p>
+                <div className="mt-4 overflow-hidden rounded-xl border bg-white">
+                  <Image
+                    src="/drone/system-architecture.svg"
+                    alt="System architecture diagram for the drone orientation project"
+                    width={1400}
+                    height={800}
+                    className="h-auto w-full"
+                  />
+                </div>
+                <p className="mt-3 text-xs text-zinc-500">
+                  Due to an NDA, the firmware and full codebase can&apos;t be
+                  shared on GitHub, but the system design and performance are
+                  documented on the project page.
+                </p>
+              </article>
+            </Link>
+          )}
         </div>
       </section>
 
-      {/* Other projects grid (no duplicates of the big featured ones) */}
+      {/* More projects (no CFB, no drone, no IoT polarization) */}
       <section className="page-section">
         <h2 className="text-2xl font-semibold">More projects</h2>
         <p className="mt-2 max-w-2xl text-sm text-zinc-700">
@@ -88,7 +93,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* All projects list with tags + filter */}
+      {/* All projects + tag filter table */}
       <section className="page-section">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-xl font-semibold">All projects</h2>
