@@ -1,18 +1,14 @@
-// app/page.tsx
-
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import ProjectCard from "@/components/ProjectCard";
 import SocialIcons from "@/components/SocialIcons";
+import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 
 export default function HomePage() {
-  // Large featured project is the drone orientation project.
   const droneProject = projects.find((p) => p.slug === "drone-orientation");
 
-  // Ensure CFB + SDR are in the small featured row, exclude drone + IoT.
   const desiredSmallSlugs = ["cfb-rankings", "sdr-telemetry"];
   const smallFeatured: typeof projects = [];
 
@@ -27,7 +23,9 @@ export default function HomePage() {
     ...desiredSmallSlugs,
   ]);
 
-  const extra = projects.filter((p) => !excludedSlugs.has(p.slug)).slice(0, 3 - smallFeatured.length);
+  const extra = projects
+    .filter((p) => !excludedSlugs.has(p.slug))
+    .slice(0, 3 - smallFeatured.length);
 
   const smallCards = [...smallFeatured, ...extra];
 
@@ -35,7 +33,7 @@ export default function HomePage() {
     <main>
       <Nav />
 
-      {/* Hero section */}
+      {/* Hero */}
       <section className="relative overflow-hidden rounded-2xl border py-12 sm:py-16 section-accent">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(45rem_45rem_at_90%_-10%,var(--theme-blue)_12%,transparent_60%)]" />
 
@@ -55,14 +53,17 @@ export default function HomePage() {
             <p className="text-xs uppercase tracking-widest text-zinc-500">
               Hello, I&apos;m
             </p>
+
             <h1 className="mt-1 text-4xl font-bold tracking-tight sm:text-5xl">
               Riley Kirkwood
             </h1>
 
             <p className="mt-4 max-w-2xl text-lg text-zinc-700">
-              Computer Engineering grad focused on embedded systems, signal
-              processing, and data-heavy tooling. I like building systems that
-              connect hardware, software, and real-world behavior.
+              I’m a computer engineering graduate who enjoys building new,
+              reliable, and meaningful systems—whether that’s embedded hardware,
+              signal processing pipelines, or full-stack tools. I like seeing
+              how pieces fit together, learning quickly, and contributing to
+              teams in a way that keeps projects moving forward.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -76,44 +77,40 @@ export default function HomePage() {
                 Contact
               </Link>
 
-              <span className="ml-2 inline-flex items-center gap-2">
+              <div className="ml-2 inline-flex items-center gap-2">
                 <SocialIcons
                   github="https://github.com/rskirkwood"
                   linkedin="https://www.linkedin.com/in/riley-kirkwood"
                   size={22}
                 />
-              </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured projects */}
+      {/* Featured Projects */}
       <section className="page-section">
         <h2 className="text-2xl font-semibold">Featured projects</h2>
 
-        {/* Large featured drone project */}
         {droneProject && (
           <article className="card mt-4">
-            <Link
-              href={`/projects/${droneProject.slug}`}
-              className="hover:underline"
-            >
-              <h3 className="text-lg font-semibold">
-                {droneProject.title}
-              </h3>
+            <Link href={`/projects/${droneProject.slug}`}>
+              <h3 className="text-lg font-semibold">{droneProject.title}</h3>
             </Link>
+
             <p className="mt-2 text-sm text-zinc-700">
               Jetson Nano + ROS system that fuses IMU and camera data with an
               Extended Kalman Filter to estimate roll, pitch, and yaw in real
-              time. Compared to IMU-only and vision-only baselines, the EKF
-              improves roll-angle accuracy and significantly cleans up angle-rate
-              estimates.
+              time. The EKF improves angle accuracy and dramatically smooths
+              angle-rate estimates compared to IMU-only or vision-only baselines.
             </p>
+
             <p className="mt-2 text-xs text-zinc-500">
-              Due to an NDA, the code isn&apos;t public, but the architecture and
-              results are documented on the project page.
+              Due to an NDA, the embedded code isn’t public, but the design and
+              results are detailed on the project page.
             </p>
+
             <div className="mt-4 text-sm">
               <Link
                 href={`/projects/${droneProject.slug}`}
@@ -125,7 +122,7 @@ export default function HomePage() {
           </article>
         )}
 
-        {/* Small project cards */}
+        {/* Small Cards */}
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {smallCards.map((p) => (
             <ProjectCard key={p.slug} project={p} />
